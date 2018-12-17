@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
+import { NavLink, Link } from 'react-router-dom';
 
 class SignUpForm extends Component {
     constructor() {
@@ -31,10 +31,22 @@ class SignUpForm extends Component {
 
         console.log('The form was submitted with the following data:');
         console.log(this.state);
+        this.props.history.push("/menu")
     }
 
     render() {
         return (
+            <div className="App">
+            <div className="App__Aside"></div>
+             <div className="App__Form">
+               <div className="PageSwitcher">
+                   <NavLink to="/" activeClassName="PageSwitcher__Item--Active" className="PageSwitcher__Item">Sign In</NavLink>
+                 <NavLink exact to="/signup" activeClassName="PageSwitcher__Item--Active" className="PageSwitcher__Item">Sign Up</NavLink>
+                </div>
+  
+                <div className="FormTitle">
+                     <NavLink to="/" activeClassName="FormTitle__Link--Active" className="FormTitle__Link">Sign In</NavLink> or <NavLink exact to="/" activeClassName="FormTitle__Link--Active" className="FormTitle__Link">Sign Up</NavLink>
+                 </div>
         <div className="FormCenter">
             <form onSubmit={this.handleSubmit} className="FormFields">
               <div className="FormField">
@@ -60,6 +72,8 @@ class SignUpForm extends Component {
                   <button className="FormField__Button mr-20">Sign Up</button> <Link to="/sign-in" className="FormField__Link">I'm already member</Link>
               </div>
             </form>
+          </div>
+          </div>
           </div>
         );
     }

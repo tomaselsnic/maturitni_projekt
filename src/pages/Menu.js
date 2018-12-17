@@ -1,7 +1,10 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
 
 class Menu extends Component {
-    
+    render() {
+        return(
+            <h1>test</h1>
+        )
+    }
 }
 export default Menu;
