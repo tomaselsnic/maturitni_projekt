@@ -4,5 +4,6 @@ export class CreateFieldsDto
   readonly price: number;
   readonly description: string;
   readonly owner: string;
+  readonly location:string;
   
 }

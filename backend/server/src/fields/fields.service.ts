@@ -20,6 +20,7 @@ export class FieldsService {
     field.description=data.description;
     field.owner=data.owner;
     field.price=data.price;
+    field.location=data.location;
     return await this.fieldsRepository.save(field);
   }
 }

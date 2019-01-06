@@ -17,4 +17,7 @@ export class Fields {
   @Column('int')
   price: number;
 
+  @Column("text")
+  location:string;
+
 }
