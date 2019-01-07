@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
 import { NavLink, Link } from 'react-router-dom';
+import axios from 'axios';
+import {withRouter} from 'react-router-dom'
 
 class SignInForm extends Component {
-    constructor() {
-        super();
-
+    constructor(props) {
+        super(props);
         this.state = {
             email: '',
             password: ''
@@ -13,6 +14,9 @@ class SignInForm extends Component {
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
     }
+
+
+    // TODO: redirect to /menu when logged in
 
     handleChange(e) {
         let target = e.target;
@@ -24,14 +28,24 @@ class SignInForm extends Component {
         });
     }
 
-    handleSubmit(e) {
-        e.preventDefault();
-
+    async handleSubmit() {
+        console.log(this.props);
         console.log('The form was submitted with the following data:');
         console.log(this.state);
-        this.props.history.push("/menu")
-
-
+        console.log("ted se vola")
+        try {
+            // TODO: move address to declaration file
+            // request o prihlaseni uzivatele pomoci dat zadanych do formuláře
+            const { data: token } = await axios.post("http://localhost:3000/login", { email: this.state.email, password: this.state.password });
+            await localStorage.setItem("token", token);
+            // Pokud se mi spravne vratil token, redirect do menu
+            console.log(token);
+            this.props.history.push("/menu");
+        } catch (error) {
+            // Pokud v průběhu nastane chyba, window.alert z chybovou chláškou (nemusí vždy odpovídat nesprávnému heslu, muze se jednat o error 500 atd)
+            console.log(error);
+            window.alert("nespravný email nebo heslo", error) 
+        }
     }
     
 
@@ -50,7 +64,7 @@ class SignInForm extends Component {
                    <NavLink to="/" activeClassName="FormTitle__Link--Active" className="FormTitle__Link">Sign In</NavLink> or <NavLink exact to="/" activeClassName="FormTitle__Link--Active" className="FormTitle__Link">Sign Up</NavLink>
                </div>
         <div className="FormCenter">
-            <form onSubmit={this.handleSubmit} className="FormFields" onSubmit={this.handleSubmit}>
+            <form className="FormFields">
                             <div className="FormField">
                 <label className="FormField__Label" htmlFor="email">E-Mail Address</label>
                 <input type="email" id="email" className="FormField__Input" placeholder="Enter your email" name="email" value={this.state.email} onChange={this.handleChange} />
@@ -62,7 +76,8 @@ class SignInForm extends Component {
               </div>
 
               <div className="FormField">
-                  <button className="FormField__Button mr-20">Sign In</button> <Link to="/" className="FormField__Link">Create an account</Link>
+                  <button onClick={() => this.handleSubmit()} type="button" className="FormField__Button mr-20">Sign In</button>
+                  <Link to="/" className="FormField__Link">Create an account</Link>
               </div>
             </form>
           </div>
@@ -72,4 +87,4 @@ class SignInForm extends Component {
     }
 }
 
-export default SignInForm;
+export default withRouter(SignInForm);

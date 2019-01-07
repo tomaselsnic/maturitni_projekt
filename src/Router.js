@@ -4,6 +4,9 @@ import SignInForm from "./pages/SignInForm";
 import SignUpForm from "./pages/SignUpForm";
 import Menu from "./pages/Menu";
 import Fields from "./pages/Fields";
+import ProtectedRoute from './protectedRoute';
+
+
 class Router extends React.Component {
   render() {
     return (
@@ -11,8 +14,9 @@ class Router extends React.Component {
           <Switch>
             <Route exact={true} path="/" component={SignInForm} />
             <Route path="/signup" component={SignUpForm} />
-            <Route path="/menu" component={Menu}/>
-            <Route path="/fields" component={Fields}/>
+
+            <ProtectedRoute path="/menu" component={Menu}/>
+            <ProtectedRoute path="/fields" component={Fields}/>
           </Switch>
       </BrowserRouter>
     );

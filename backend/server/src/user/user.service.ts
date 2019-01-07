@@ -26,7 +26,6 @@ export class UsersService {
   }
   async register(data:CreateUserDto):Promise<Users>
   {
-      console.log(data);
        const user=new Users();
         user.email=data.email;
         user.name=data.name;
