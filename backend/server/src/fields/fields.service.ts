@@ -1,6 +1,6 @@
 import { Injectable, Inject } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
-import { Repository } from 'typeorm';
+import { Repository, DeleteResult, ObjectID } from 'typeorm';
 import { Fields } from './fields.entity';
 import { CreateFieldsDto } from './fields.Dto';
 
@@ -14,6 +14,10 @@ export class FieldsService {
   async findAll(): Promise<Fields[]> {
     return await this.fieldsRepository.find();
   }
+  async delete(id:string):Promise<DeleteResult>{
+    return await this.fieldsRepository.delete(id);
+  }
+  
   async save(data:CreateFieldsDto):Promise<Fields>{
     const field=new Fields();
     field.name=data.name;

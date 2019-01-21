@@ -4,6 +4,7 @@ import SignInForm from "./pages/SignInForm";
 import SignUpForm from "./pages/SignUpForm";
 import Menu from "./pages/Menu";
 import Fields from "./pages/Fields";
+import NewField from "./pages/NewField"
 import ProtectedRoute from './protectedRoute';
 
 
@@ -17,6 +18,7 @@ class Router extends React.Component {
 
             <ProtectedRoute path="/menu" component={Menu}/>
             <ProtectedRoute path="/fields" component={Fields}/>
+            <ProtectedRoute path="/new" component={NewField} />
           </Switch>
       </BrowserRouter>
     );

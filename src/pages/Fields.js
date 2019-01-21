@@ -10,14 +10,38 @@ class Fields extends Component {
             fields:[]
         }
 
+
+        this.handleDelete = this.handleDelete.bind(this);
+
     }
     async componentDidMount(){
-        const {data}= await axios.get("http://localhost:3000/fields/All")
-        console.log(data);
-        this.setState({fields:data})
+        const { data }= await axios.get("http://localhost:3000/fields/All")
+        this.setState({ fields: data });
         console.log(this.state.fields);
       
     }
+
+    async handleDelete(fieldId) {
+        try {
+            const oldFields = this.state.fields;
+            const toRemove = oldFields.find(field => field.id === fieldId);
+            const indexToRemove = oldFields.indexOf(toRemove);
+            oldFields.splice(indexToRemove, 1);
+
+            this.setState({ fields: oldFields });
+
+            const response = await axios.delete(`http://localhost:3000/fields/delete/${fieldId}`);
+            console.log(response);
+        } catch (error) {
+            console.log(error);
+            alert(error);
+        }
+
+
+    }
+
+    
+
     render() {
         return(
             // <div>
@@ -33,14 +57,28 @@ class Fields extends Component {
             //     })}
 
             // </div>
-
+            <div>
             <ReactTable
                 data={this.state.fields}
                 columns={[{ Header: "Hřiště", 
-                columns: [ {Header:"ID",accessor:"id"},{ Header: "Správce", accessor: "owner" }, { Header: "Name", accessor:"name"},{Header:"Cena za hodinu",accessor:"price"},{Header:"Lokace",accesor:"location"},{Header:"informace",accesor:"description"} ] }]}
+                columns: [  { Header:"ID",accessor:"id" },
+                            { Header: "Správce", accessor: "owner" }, 
+                            { Header: "Název", accessor: "name" },
+                            { Header: "Cena za hodinu", accessor: "price" },
+                            { Header: "Lokace", accessor: "location" },
+                            { Header: "Informace", accessor: "description" }, 
+                            {
+                                id: 'edit',
+                                accessor: '[row identifier to be passed to button]',
+                                Cell: ({original}) => (<button onClick={() => this.handleDelete(original.id)}>Smazat</button>)
+                              },
+                        ] 
+                    }]}
             />
-            
+            <a href="http://localhost:3001/new">Přidat nové hřiště</a>
+            </div>
         )
+        
     }
 }
 export default Fields;

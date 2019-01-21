@@ -13,3 +13,24 @@ body {
 .mr-20 {
   margin-right: 20px !important;
 }
+
+.box{
+  margin:auto;
+  background:rgb(72, 218, 169);
+  padding:2em;
+  position:relative;
+  width:70%;
+  box-shadow:0 0 25px 10px
+                  rgba(0,0,0, .25);
+}
+.box--lower{
+  box-shadow:0 5px 0 rgba(0,0,0, .5);
+}
+.box:hover{
+  transform: scale(1.1);
+  box-shadow: 0 5px 100px rgba(0,0,0, .25);
+}
+.a{
+  text-align: center;
+  padding: 100px;
+}

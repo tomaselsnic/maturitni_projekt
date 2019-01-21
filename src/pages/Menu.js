@@ -17,12 +17,15 @@ class Menu extends Component {
     render() {
         return(
             <div>
-            <React.Fragment>
-                <a href="http://localhost:3001/fields">Seznam hřišť</a>
-                
-                <a onClick={this.handleLogout}>Odhlásit</a>
-            </React.Fragment>
+            <div class="box">
+            
+                <a class="center "href="http://localhost:3001/fields">Seznam hřišť</a>
             </div>
+            <div class="a">
+            <a onClick={this.handleLogout}>Odhlásit</a>
+            </div>
+            </div>
+            
         )
     }
 }
