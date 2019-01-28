@@ -57,6 +57,7 @@ class Fields extends Component {
             //     })}
 
             // </div>
+            
             <div>
             <ReactTable
                 data={this.state.fields}
@@ -70,12 +71,14 @@ class Fields extends Component {
                             {
                                 id: 'edit',
                                 accessor: '[row identifier to be passed to button]',
-                                Cell: ({original}) => (<button onClick={() => this.handleDelete(original.id)}>Smazat</button>)
+                                Cell: ({original}) => (<button class="btn" onClick={() => this.handleDelete(original.id)}><i class="fa fa-close"></i>Smazat</button>)
                               },
                         ] 
                     }]}
             />
             <a href="http://localhost:3001/new">Přidat nové hřiště</a>
+            <br />
+            <a href="http://localhost:3001/menu">Zpět</a>
             </div>
         )
         

@@ -56,7 +56,7 @@ class NewField extends React.Component {
             <div>
                 <h1>Zadejte nové hřiště</h1>
                 <form onSubmit={this.handleSubmit}>
-                    <input name="name" onChange={this.handleChange} type="text" placeholder="field name" />
+                    <input  img="../button"name="name" onChange={this.handleChange} type="text" placeholder="field name" />
                     <input name="owner" onChange={this.handleChange} type="text" placeholder="field owner" />
                     <input name="price" onChange={this.handleChange} type="number" placeholder="field price" />
                     <textarea name="description" onChange={this.handleChange} placeholder="field description" />

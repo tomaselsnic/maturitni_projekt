@@ -16,12 +16,12 @@ class Menu extends Component {
 
     render() {
         return(
-            <div>
+            <div className="App_Aside">
             <div class="box">
             
                 <a class="center "href="http://localhost:3001/fields">Seznam hřišť</a>
             </div>
-            <div class="a">
+            <div class="box2">
             <a onClick={this.handleLogout}>Odhlásit</a>
             </div>
             </div>
