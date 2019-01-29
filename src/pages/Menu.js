@@ -16,12 +16,12 @@ class Menu extends Component {
 
     render() {
         return(
-            <div className="App_Aside">
-            <div class="box">
+            <div className="height-100vh flex flex-row align-items-center justify-content-center margin-auto">
+            <div class="box flex flex-col justify-content-center align-items-center">
             
                 <a class="center "href="http://localhost:3001/fields">Seznam hřišť</a>
             </div>
-            <div class="box2">
+            <div class="box flex flex-col justify-content-center align-items-center">
             <a onClick={this.handleLogout}>Odhlásit</a>
             </div>
             </div>
