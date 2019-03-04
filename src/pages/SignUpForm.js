@@ -30,7 +30,7 @@ class SignUpForm extends Component {
         e.preventDefault();
         console.log(this.state);
 
-        const data = await axios.post("http://localhost:3000/register", { email: this.state.email, password: this.state.password, name: this.state.name });
+        const data = await axios.post(`${process.env.REACT_APP_API_ROOT}/register`, { email: this.state.email, password: this.state.password, name: this.state.name });
         console.log(data);
         this.props.history.push("/")
     }

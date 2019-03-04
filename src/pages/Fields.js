@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import axios from "axios";
 import ReactTable from "react-table";
 import "react-table/react-table.css";
+import Navbar from "./../components/Navbar";
 
 class Fields extends Component {
     constructor(props){
@@ -15,7 +17,7 @@ class Fields extends Component {
 
     }
     async componentDidMount(){
-        const { data }= await axios.get("http://localhost:3000/fields/All")
+        const { data }= await axios.get(`${process.env.REACT_APP_API_ROOT}/fields/All`)
         this.setState({ fields: data });
         console.log(this.state.fields);
       
@@ -30,7 +32,7 @@ class Fields extends Component {
 
             this.setState({ fields: oldFields });
 
-            const response = await axios.delete(`http://localhost:3000/fields/delete/${fieldId}`);
+            const response = await axios.delete(`${process.env.REACT_APP_API_ROOT}/fields/delete/${fieldId}`);
             console.log(response);
         } catch (error) {
             console.log(error);
@@ -59,7 +61,8 @@ class Fields extends Component {
             // </div>
             
             <div>
-            <ReactTable
+                <Navbar/>
+            <ReactTable 
                 data={this.state.fields}
                 columns={[{ Header: "Hřiště", 
                 columns: [  { Header:"ID",accessor:"id" },
@@ -71,14 +74,11 @@ class Fields extends Component {
                             {
                                 id: 'edit',
                                 accessor: '[row identifier to be passed to button]',
-                                Cell: ({original}) => (<button class="btn" onClick={() => this.handleDelete(original.id)}><i class="fa fa-close"></i>Smazat</button>)
+                                Cell: ({original}) => (<button class="btn" onClick={() => this.handleDelete(original.id)}><i class="fa fa-close"></i>&#10005;</button>)
                               },
                         ] 
                     }]}
             />
-            <a href="http://localhost:3001/new">Přidat nové hřiště</a>
-            <br />
-            <a href="http://localhost:3001/menu">Zpět</a>
             </div>
         )
         
