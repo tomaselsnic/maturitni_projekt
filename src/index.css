@@ -169,3 +169,6 @@ h1{
   -ms-transition: background-color 500ms linear;
   transition: background-color 500ms linear;
 }
+.navbar-right{
+  float: right;
+}

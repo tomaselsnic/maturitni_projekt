@@ -22,14 +22,14 @@ class Menu extends Component {
         return (
             <div className="height-100vh flex flex-row align-items-stretch justify-content-stretch margin-auto">
 
-                <div class="background_menu primary flex justify-content-center align-items-center">
-                    <div class="box secondary flex flex-col justify-content-center align-items-center"onClick={this.handleRedirect}>
+                <div className="background_menu primary flex justify-content-center align-items-center">
+                    <div className="box secondary flex flex-col justify-content-center align-items-center"onClick={this.handleRedirect}>
                         <span>Seznam hřišť</span>
                     </div>
                 </div>
 
-                <div class="background_menu secondary flex justify-content-center align-items-center">
-                    <div class="box primary flex flex-col justify-content-center align-items-center" onClick={this.handleLogout}>
+                <div className="background_menu secondary flex justify-content-center align-items-center">
+                    <div className="box primary flex flex-col justify-content-center align-items-center" onClick={this.handleLogout}>
                         <a>Odhlásit</a>
                     </div>
                 </div>

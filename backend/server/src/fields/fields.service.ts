@@ -27,4 +27,16 @@ export class FieldsService {
     field.location=data.location;
     return await this.fieldsRepository.save(field);
   }
+  async detail(id:string):Promise<Fields>{
+    return await this.fieldsRepository.findOne(id);
+  }
+  async edit(id:string,data:CreateFieldsDto):Promise<Fields>{
+    const field= await this.fieldsRepository.findOne(id);
+    field.name=data.name;
+    field.description=data.description;
+    field.owner=data.owner;
+    field.price=data.price;
+    field.location=data.location;
+    return await this.fieldsRepository.save(field);
+  }
 }

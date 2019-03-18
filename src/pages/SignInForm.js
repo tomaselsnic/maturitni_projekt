@@ -29,10 +29,6 @@ class SignInForm extends Component {
     }
 
     async handleSubmit() {
-        console.log(this.props);
-        console.log('The form was submitted with the following data:');
-        console.log(this.state);
-        console.log("ted se vola")
         try {
             // TODO: move address to declaration file
             // request o prihlaseni uzivatele pomoci dat zadanych do formuláře
