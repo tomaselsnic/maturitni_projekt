@@ -8,6 +8,7 @@ async function bootstrap() {
       methods:"*",
     }
   });
+  app.setGlobalPrefix("api")
   await app.listen(3000);
 }
 bootstrap();

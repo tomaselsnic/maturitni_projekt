@@ -73,7 +73,6 @@ class Fields extends Component {
                         { Header: "Název", accessor: "name" },
                         { Header: "Cena za hodinu", accessor: "price" },
                         { Header: "Lokace", accessor: "location" },
-                        { Header: "Informace", accessor: "description" },
                         {
                             id: 'edit',
                             accessor: '[row identifier to be passed to button]',

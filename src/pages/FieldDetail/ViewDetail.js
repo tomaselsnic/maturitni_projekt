@@ -6,11 +6,13 @@ const ViewDetail = (props) => {
 
     return(
         <React.Fragment>
+            <div className="detail">
             <h1>{detail.name}</h1>
-            <p>{detail.owner}</p>
-            <p>{detail.description}</p>
-            <p>{detail.price}</p>
-            <p>{detail.location}</p>
+            <p><strong>Vlastník:</strong> {detail.owner}</p>
+            <p><strong>Cena:</strong> {detail.price}</p>
+            <p><strong>informace:</strong> {detail.description}</p>
+            <p><strong>Adresa:</strong> {detail.location}</p>
+            </div>
         </React.Fragment>
     )
 }

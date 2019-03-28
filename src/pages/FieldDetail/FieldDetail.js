@@ -62,13 +62,12 @@ class FieldDetail extends React.Component {
             
             <React.Fragment>
                 <Navbar />
-                <h1>{this.props.match.params.id}</h1>
                 {this.state.isEditing ?
                     <FieldForm detail={this.state.detail} handleInputChange={this.handleInputChange} handleSubmit={this.handleSubmit} />
                     : 
                     <ViewDetail detail={this.state.detail} />
                 }
-                <input type="button" onClick={() => this.setState({ isEditing: !this.state.isEditing })} value={this.state.isEditing ? "zobrazit" : "edit"} />
+                <input type="button"  className="submitButton2" onClick={() => this.setState({ isEditing: !this.state.isEditing })} value={this.state.isEditing ? "zobrazit" : "editovat"} />
             </React.Fragment>
         );
 

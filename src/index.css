@@ -94,6 +94,11 @@ textarea{
 h1{
   text-align: center;
 }
+.detail{
+  text-align:center;
+  font-size:2rem;
+  margin-top:100px;
+}
 .btn {
   background-color: Red; 
   border: none; 
@@ -161,14 +166,30 @@ h1{
   outline: none;
   border: none;
   cursor: pointer;
+  padding:10px 20px;
+  display:block;
+  margin: 20px auto;
+}
+.submitButton2 {
+  background-color: #007bff;
+  color: white;
+  border-radius: 5px;
+  outline: none;
+  border: none;
+  cursor: pointer;
+  padding:10px 20px;
+  display:block;
+  margin: 20px auto;
+  font-size:2rem;
 }
 
 .submitButton:hover {
   background-color: #025ced;
-  -webkit-transition: background-color 500ms linear;
-  -ms-transition: background-color 500ms linear;
-  transition: background-color 500ms linear;
+  -webkit-transition:background-color 500ms linear;
+  -ms-transition:background-color 500ms linear;
+  transition:background-color 500ms linear;
 }
+
 .navbar-right{
   float: right;
 }

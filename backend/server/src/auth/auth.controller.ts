@@ -1,6 +1,6 @@
 import { Controller, Get, Body, Post } from "@nestjs/common";
-import { UsersService } from "src/user/user.service";
-import { CreateUserDto } from "src/user/users.Dto";
+import { UsersService } from "../user/user.service";
+import { CreateUserDto } from "../user/users.Dto";
 import { AuthService } from "./auth.service";
 
 

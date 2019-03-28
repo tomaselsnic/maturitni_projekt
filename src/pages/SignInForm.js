@@ -34,6 +34,7 @@ class SignInForm extends Component {
             // request o prihlaseni uzivatele pomoci dat zadanych do formuláře
             const { data: token } = await axios.post(`${process.env.REACT_APP_API_ROOT}/login`, { email: this.state.email, password: this.state.password });
             await localStorage.setItem("token", token);
+            axios.defaults.headers.common['Authorization'] = `Bearer ${localStorage.getItem("token")}`;
             // Pokud se mi spravne vratil token, redirect do menu
             console.log(token);
             this.props.history.push("/menu");
